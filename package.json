@@ -1,0 +1,17 @@
+{
+  "name": "listed-assignement",
+  "version": "1.0.0",
+  "description": "A small node.js app that scans and automatically replies to unreplied emails",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chirag Verma",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "googleapis": "^105.0.0",
+    "nodemon": "^3.0.1"
+  }
+}
