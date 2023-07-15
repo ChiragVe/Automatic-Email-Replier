@@ -10,8 +10,9 @@
 //    1. Can improve in the error handling scenario.
 //    2. Code readability can be improved.
 //    3. Optimization of code is possible.
-//    4. Can optimized the flow of program.
-//
+//    4. Can optimized the flow of program. 
+//    5. Response messages can be better.
+
 const express = require("express");
 require("dotenv").config();
 const { google } = require("googleapis");
@@ -60,6 +61,7 @@ app.get("/oauth2callback", async (req, res) => {
       const lableIds = await createLabel(oauth2Client, userDetails.email);
       // Repeat  in Random intervals between 45 and 120 seconds
       const timeInterval = Math.floor(Math.random() * (120 - 45 + 1)) + 45;
+      console.log(`Replying to mails in: ${timeInterval} seconds`)
       setInterval(
         getMails,
         timeInterval * 1000,
@@ -182,10 +184,10 @@ async function getMails(auth, email, lableIds) {
             },
           });
           //modifying the label to auto reply
-          await gmail.users.messages.modify({
+          await gmail.users.threads.modify({
             auth,
             userId: "me",
-            id: mail.id,
+            id: mail.threadId,
             resource: {
               addLabelIds: [lableIds[0].autoReply],
               removeLabelIds: ["INBOX"],
