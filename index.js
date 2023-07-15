@@ -1,3 +1,17 @@
+//                 LIBRARIES AND TECHNOLOGY USED:
+//    1. NODE and express.js
+//    2. Packages Used: 
+//       1. dotenv -> for parsing data from .env file
+//       2. googleapis -> official google apis for interacting with google services in this case with gmail API
+//       3. nodemon -> for development purposes
+//
+//
+//                 SCOPE OF IMPROVEMENT
+//    1. Can improve in the error handling scenario.
+//    2. Code readability can be improved.
+//    3. Optimization of code is possible.
+//    4. Can optimized the flow of program.
+//
 const express = require("express");
 require("dotenv").config();
 const { google } = require("googleapis");
